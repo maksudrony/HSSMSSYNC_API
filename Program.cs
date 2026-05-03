@@ -18,8 +18,6 @@ builder.Services.AddTransient<IDbConnection>(sp =>
     new OracleConnection(builder.Configuration.GetConnectionString("OracleDbConnection"))
 );
 
-// Register Repositories
-// যখন কেউ IRemoteAccUserRepository চাইবে → তাকে RemoteAccUserRepository দিবে
 builder.Services.AddScoped<HSSMSSYNC_API.Interfaces.IRemoteAccUserRepository, HSSMSSYNC_API.Repositories.RemoteAccUserRepository>();
 
 // 3. Register Services
