@@ -1,3 +1,6 @@
+using HSSMSSYNC_API.Interfaces;
+using HSSMSSYNC_API.Repositories;
+using HSSMSSYNC_API.Services;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
 
@@ -21,6 +24,9 @@ builder.Services.AddScoped<HSSMSSYNC_API.Interfaces.IRemoteAccUserRepository, HS
 
 // 3. Register Services
 builder.Services.AddScoped<HSSMSSYNC_API.Interfaces.IRemoteAccUserService, HSSMSSYNC_API.Services.RemoteAccUserService>();
+
+builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
+builder.Services.AddScoped<IDashboardService, DashboardService>();
 
 var app = builder.Build();
 
